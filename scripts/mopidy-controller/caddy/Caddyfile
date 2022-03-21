@@ -1,0 +1,5 @@
+localhost
+
+reverse_proxy 127.0.0.1:6680
+header Access-Control-Allow-Origin "*"
+header Access-Control-Allow-Headers "*"

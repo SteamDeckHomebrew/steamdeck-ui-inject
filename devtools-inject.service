@@ -1,0 +1,9 @@
+[Unit]
+Description=CEF Remote debugging JS Injector
+
+[Service]
+ExecStart=/usr/bin/python /home/deck/steamdeck-ui-inject/devtools-inject.py scripts/
+WorkingDirectory=/home/deck/steamdeck-ui-inject
+
+[Install]
+WantedBy=multi-user.target

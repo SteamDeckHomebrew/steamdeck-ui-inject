@@ -1,0 +1,12 @@
+[Unit]
+Description=Caddy reverse proxy setup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=!CADDY_DIRECTORY!/caddy_linux_amd64 run
+WorkingDirectory= !CADDY_DIRECTORY!
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

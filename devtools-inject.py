@@ -1,4 +1,3 @@
-from ast import arg
 from requests import get
 from websocket import create_connection
 from json import dumps, loads

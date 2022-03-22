@@ -1,4 +1,4 @@
-0#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 echo 'This will patch the gamescope session to enable CEF remote debugging.';
 echo 'This could be a security vulnerability.';

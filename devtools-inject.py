@@ -34,22 +34,19 @@ class Tab:
         return self.title
 
 def get_tabs():
-    res = get("{}/json".format(BASE_ADDRESS)).json()
-    return [Tab(i) for i in res]
-
-def main():
-    tabs = None
     while True:
         try:
-            tabs = get_tabs()
-            break
+            res = get("{}/json".format(BASE_ADDRESS)).json()
+            return [Tab(i) for i in res]
         except Exception as e:
             print("Could not fetch tabs from Steam CEF instance. Are you sure steam is running ?")
             print(e)
             print("Retrying in 5 seconds")
             sleep(5)
+
+def main():
+    tabs = get_tabs()
     files = listdir(argv[1])
-    print(files)
     for file in files:
         fp = open(path.join(argv[1], file, "main.js"), "r")
         cfg = loads(fp.readline()[2:])

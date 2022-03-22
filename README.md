@@ -11,11 +11,22 @@ Probably ? Obviously having remote debugging enabled has its own risks, and coul
 ## How to use
 Run all these in `/home/deck`  
   
-`git clone https://github.com/marios8543/steamdeck-ui-inject.git`  
-`cd steamdeck-ui-inject`  
-`sudo ./patch-gamescope-session.sh`  
-`sudo cp devtools-inject.service /etc/systemd/system/`  
-`sudo systemctl enable --now devtools-inject`  
+```
+git clone https://github.com/marios8543/steamdeck-ui-inject.git
+cd steamdeck-ui-inject
+
+sudo steamos-readonly disable
+
+curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+sudo python get-pip.py
+sudo python -m pip install -r requirements.txt
+
+sudo ./patch-gamescope-session.sh
+sudo cp devtools-inject.service /etc/systemd/system/
+sudo systemctl enable --now devtools-inject
+
+sudo steamos-readonly enable
+```
 
 Create a new folder in scripts and add a file named main.js  
 The first line should be a commented-out JSON string with `target_tab` parameter and an optional `enabled` parameter.
